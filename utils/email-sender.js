@@ -6,13 +6,13 @@ module.exports = async function(code, email) {
         const transporter = nodemailer.createTransport({
             service: "gmail",
             auth: {
-                user: "Assomad377@gmail.com",
+                user: "komilovbehruz5500@gmail.com",
                 pass: process.env.APP_KEY
             }
         })
 
         await transporter.sendMail({
-            from: "Qudrat",
+            from: "Behruz",
             to: email,
             subject: "Library verification",
             text: "ushbu xabarda tasdiqlash kod keltirilgan",
