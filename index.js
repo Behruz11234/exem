@@ -41,8 +41,35 @@
 // });
 
 
-const express = require("express");
+// const express = require("express");
+// const app = express();
+
+// const uploadRouter = require("./router/upload.routes");
+
+// // middleware
+// app.use(express.json());
+
+// // routes
+// app.use("/api", uploadRouter); // 👈 SHU TO‘G‘RI
+
+// app.listen(3000, () => {
+//   console.log("Server running on port 3000");
+// });
+
+// console.log(uploadRouter);
+
+
+const express = require("express");  // faqat bir marta!
+const fs = require("fs");
+const path = require("path");
+
 const app = express();
+
+// uploads papkasini yaratish
+const uploadDir = path.join(__dirname, "uploads");
+if (!fs.existsSync(uploadDir)) {
+  fs.mkdirSync(uploadDir, { recursive: true });
+}
 
 const uploadRouter = require("./router/upload.routes");
 
@@ -50,10 +77,8 @@ const uploadRouter = require("./router/upload.routes");
 app.use(express.json());
 
 // routes
-app.use("/api", uploadRouter); // 👈 SHU TO‘G‘RI
+app.use("/api", uploadRouter);
 
 app.listen(3000, () => {
-  console.log("Server running on port 4001");
+  console.log("Server running on port 3000");
 });
-
-console.log(uploadRouter);
